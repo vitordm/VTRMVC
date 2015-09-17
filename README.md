@@ -8,7 +8,7 @@ First, use composer... It's simple:
 ```
 ...
 "require" {
-"html/html-helpr" : "dev-master"
+  "mvc/vtrmvc" : "dev-master"
 }
 ```
 Define a JSON configuration file. (Take a look on file "start_sample.json").
