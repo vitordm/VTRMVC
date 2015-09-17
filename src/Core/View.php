@@ -5,7 +5,6 @@ namespace VTRMVC\Core;
 use Html\HtmlHelper as HtmlHelper;
 use Html\FormHelper as FormHelper;
 use VTRMVC\Core\IApp\TApp;
-use VTRMVC\Util\Util;
 
 class View extends TApp
 {
