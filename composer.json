@@ -1,0 +1,24 @@
+{
+  "name": "mvc/vtrmvc",
+  "description": "A simple php framework mvc",
+  "minimum-stability": "dev",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Vitor G. Isse de Oliveira",
+      "email": "oliveira.vitor3@gmail.com"
+    }
+  ],
+  "require":{
+    "php" : ">=5.5",
+    "html/html-helpr" : "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "VTRMVC\\": "src"
+    },
+    "files": [
+      "src/start.php"
+    ]
+  }
+}

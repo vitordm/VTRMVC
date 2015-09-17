@@ -1,0 +1,37 @@
+{
+  "site_name" : "",
+  "site_email" : "",
+
+  "site_path" : ".",
+  "tmp_path" : "./tmp",
+  "log_path" : "./tmp/log",
+
+  "css_link" : "",
+  "js_link" : "",
+  "images_link" : "",
+
+  "mvc" : {
+
+    "path" : "../app",
+    "controller_default" : "home",
+    "action_default" : "index",
+    "suffix_action" : "Action",
+    "app_controller" : true,
+    "app_model" : true,
+
+    "view" : {
+      "template_folder" : "../app/View/Template",
+      "template_file" : "default.php"
+    }
+
+  },
+
+  "route" : {
+    "404" : "error/404"
+  },
+
+  "charset" : "utf-8",
+  "version" : "",
+  "environment" : "dev",
+  "debug" : true
+}
