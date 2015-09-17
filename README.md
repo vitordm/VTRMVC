@@ -2,8 +2,12 @@
 * A simple PHP MVC Framework
 * PHP >= 5.5
 
+### Updates
+As you can see, VTRMVC is still in DEV status.
+We're hope to publish our first realese soon.
 
-## How to use ?
+
+### How to use ?
 
 First, use composer... It's simple:
 
@@ -30,18 +34,20 @@ But be attention to principal nodes:
 }
 ```
 
-Define a tree folder where you will put your MVC Code, shoud be:
+Define a tree folder, where you will put your MVC Code, must be:
 ```
 -> FOLDER
 --> Controller          # Controllers folder
----> AppController.php 
----> HomeController.php 
+ ---> AppController.php   
+ ---> HomeController.php  
+
 --> Model       # Models folder
----> AppModel.php
----> HomeModel.php
+ ---> AppModel.php
+ ---> HomeModel.php
+
 --> View        # Views folder
----> Home
-----> index.php 
+ ---> Home
+  ----> index.php 
 ```
 
 After this, you can call the application:
@@ -63,7 +69,7 @@ try{
 }
 ```
 
-## Do you need a sample ?
+### Do you need a sample ?
 Please take a good look on "Sample" folder. You'll see how simple it is to do.
 
 :D
