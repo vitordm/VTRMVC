@@ -20,5 +20,12 @@
     "files": [
       "src/start.php"
     ]
-  }
+  },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/vitordm/VTRMVC"
+    }
+  ]
+
 }
