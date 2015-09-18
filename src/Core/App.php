@@ -225,7 +225,7 @@ class App
     }
 
     /**
-     * Get ação principal
+     * Get aï¿½ï¿½o principal
      *
      * @param string $url
      *

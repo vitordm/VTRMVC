@@ -2,7 +2,7 @@
   "name": "mvc/vtrmvc",
   "description": "A simple php framework mvc",
   "minimum-stability": "dev",
-  "license": "proprietary",
+  "license": "MIT",
   "authors": [
     {
       "name": "Vitor G. Isse de Oliveira",
@@ -11,7 +11,7 @@
   ],
   "require":{
     "php" : ">=5.5",
-    "html/html-helpr" : "dev-master"
+    "html/html-helpr" : ">=1.0.0"
   },
   "autoload": {
     "psr-4": {
