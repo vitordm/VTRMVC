@@ -60,8 +60,13 @@ class App
         }
         $app_action = $this->getAction($action);
 
-        $controller = $app_action->controller_class;
+        if (is_numeric($app_action->action)) {
+            $app_action->params[] = $app_action->action;
+            $app_action->action = $this->actionDefault;
 
+        }
+
+        $controller = $app_action->controller_class;
 
         if ($this->configuration->useMVCAppController())
             App::loadController('AppController');
@@ -71,15 +76,16 @@ class App
 
         if (App::loadController($controller)) {
 
+
             $suffix_action = $this->configuration->getMVCSuffixAction();
 
             $action_method = $app_action->action . $suffix_action;
+            $dispatch = new $controller($app_action->controller, $app_action->action);
 
-            $dispatch = new $controller($app_action->controller, $action_method);
-
-            $this->executeController($dispatch, $app_action->action, $app_action->params);
+            $this->executeController($dispatch, $action_method, $app_action->params);
 
         } else {
+
             $this->executeError();
         }
 
@@ -92,6 +98,7 @@ class App
      */
     private function executeController(Controller $controller, $action, $params)
     {
+
         $this->controller = $controller;
 
         $template = $this->configuration->getMVCTemplate();
@@ -117,8 +124,8 @@ class App
 
             $action = $this->getAction($this->configuration->getRoute("404"));
 
-            if (!App::loadController($action->controller)) {
-                throw new Exceptions\InvalidRouteException("Error - Invalid route definition");
+            if (!App::loadController($action->controller_class)) {
+                throw new Exceptions\InvalidRouteException("Error - Invalid route definition | " . __METHOD__, 1010);
             }
 
             Router::redirect($this->configuration->getRoute("404"));

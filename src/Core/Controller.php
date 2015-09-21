@@ -67,10 +67,7 @@ class Controller extends IApp\TApp
 		else
 			$this->name = substr(__CLASS__, 0, -10);
 
-		/**
-		 * Set a classe View
-		 */
-		$this->View = new View($this);
+
 
 		parent::__construct();
 
@@ -120,6 +117,8 @@ class Controller extends IApp\TApp
 	{
 		if ($this->view) {
 			$this->beforeRender();
+
+			$this->View = new View($this);
 			$this->View->render();
 		}
 

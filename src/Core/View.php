@@ -5,6 +5,7 @@ namespace VTRMVC\Core;
 use Html\HtmlHelper as HtmlHelper;
 use Html\FormHelper as FormHelper;
 use VTRMVC\Core\IApp\TApp;
+use VTRMVC\Util\Util;
 
 class View extends TApp
 {
@@ -37,6 +38,9 @@ class View extends TApp
 
 	/** @var FormHelper */
 	public $form;
+
+	/** @var array Variaveis */
+	public static $bag = [];
 
 	/**
 	 * @param Controller $controller
