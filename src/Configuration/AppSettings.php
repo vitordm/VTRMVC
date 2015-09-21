@@ -221,7 +221,7 @@ class AppSettings extends TAppIterator
             }
         }
 
-        return null;
+        return false;
     }
 
     /**

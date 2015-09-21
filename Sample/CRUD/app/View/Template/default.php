@@ -4,7 +4,9 @@
     <meta charset="utf-8">
 
     <?php
-    echo Html\HtmlHelper::css("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css", false);
+    echo Html\HtmlHelper::css([
+        "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css",
+        "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"], false);
     echo Html\HtmlHelper::css("justified-nav.css");
 
     echo Html\HtmlHelper::js("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css", false);
@@ -46,7 +48,7 @@
 
         <!-- Site footer -->
         <footer class="footer">
-            <p>&copy; VTRMVC 2015</p>
+            <p>&copy; VTRMVC 2015 <?= \Html\BootstrapHelper::icon("hand-peace-o")?></p>
         </footer>
 
     </div> <!-- /container -->

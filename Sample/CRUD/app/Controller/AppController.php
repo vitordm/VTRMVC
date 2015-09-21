@@ -12,6 +12,7 @@ class AppController extends Controller
 		 */
 		Html\HtmlHelper::setBaseSite(SITE);
 		Html\HtmlHelper::setCSSLink(SITE . 'css');
+		Html\HtmlHelper::setJSLink(SITE . "js");
 	}
 
 }

@@ -42,6 +42,7 @@ class View extends TApp
 	/** @var array Variaveis */
 	public static $bag = [];
 
+
 	/**
 	 * @param Controller $controller
 	 */

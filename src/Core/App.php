@@ -80,7 +80,13 @@ class App
             $suffix_action = $this->configuration->getMVCSuffixAction();
 
             $action_method = $app_action->action . $suffix_action;
-            $dispatch = new $controller($app_action->controller, $app_action->action);
+
+
+            $attributes = [
+                "template" => $this->configuration->getMVCTemplate()
+            ];
+
+            $dispatch = new $controller($app_action->controller, $app_action->action, $attributes);
 
             $this->executeController($dispatch, $action_method, $app_action->params);
 
@@ -101,10 +107,7 @@ class App
 
         $this->controller = $controller;
 
-        $template = $this->configuration->getMVCTemplate();
 
-        if ($template)
-            $controller->template = $template;
 
         if (method_exists($this->controller, $action)) {
             call_user_func_array(array ($this->controller, $action), $params);
@@ -119,6 +122,7 @@ class App
      */
     private function executeError()
     {
+        header("HTTP/1.0 404 Not Found");
 
         if ($this->configuration->getRoute("404")) {
 

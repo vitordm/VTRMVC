@@ -46,7 +46,7 @@ class Controller extends IApp\TApp
 	/**
 	 * @var string Caminho do template básico
 	 */
-	public $template = false;
+	public $template = "";
 
 	/**
 	 * @var string nome da ação a ser executada
@@ -59,7 +59,7 @@ class Controller extends IApp\TApp
 	 * @param string $name
 	 * @param string $action
 	 */
-	public function __construct($name = NULL, $action = NULL)
+	public function __construct($name = NULL, $action = NULL, $attributes = [])
 	{
 		//configura o nome
 		if ($name)
@@ -70,6 +70,8 @@ class Controller extends IApp\TApp
 
 
 		parent::__construct();
+
+		$this->setAttributes($attributes);
 
 		$this->setModel($name);
 
@@ -162,6 +164,17 @@ class Controller extends IApp\TApp
 		}
 	}
 
+	protected final function setAttributes($att)
+	{
+
+		if (isset($att["template"])) {
+			if (!(is_bool($this->template))) {
+				$this->template = $att["template"];
+			}
+		}
+
+	}
+
 
 	/**
 	 * @param string $action
@@ -201,10 +214,7 @@ class Controller extends IApp\TApp
 	 */
 	public function isAjax()
 	{
-		if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest')
-			return true;
-		else
-			return false;
+		return Router::isAjax();
 	}
 
 	/**
