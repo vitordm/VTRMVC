@@ -8,8 +8,9 @@ We're hope to publish our first realese soon.
 
 
 ### How to use ?
+It's simple:
 
-First, use composer... It's simple:
+First, use composer... 
 
 ```json
 ...
@@ -17,7 +18,12 @@ First, use composer... It's simple:
   "mvc/vtrmvc" : "dev-master"
 }
 ```
-Define a JSON configuration file. (Take a look on file "start_sample.json").
+
+```
+$ composer install
+```
+
+Define a JSON configuration file for your application. (Take a look on file "start_sample.json").
 But be attention to principal nodes:
 
 ```json
@@ -71,5 +77,3 @@ try{
 
 ### Do you need a sample ?
 Please take a good look on "Sample" folder. You'll see how simple it is to do.
-
-:D

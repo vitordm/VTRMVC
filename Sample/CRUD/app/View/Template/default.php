@@ -9,11 +9,13 @@
         "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"], false);
     echo Html\HtmlHelper::css("justified-nav.css");
 
-    echo Html\HtmlHelper::js("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css", false);
+    echo Html\HtmlHelper::js([
+        "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js",
+        "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"], false);
 
 
     ?>
-    <title>Sample template</title>
+    <title><?= VTRMVC\Core\Conf::get("Site.title") ?></title>
 </head>
 <body>
 <div>
@@ -25,10 +27,10 @@
             <h3 class="text-muted"><?= \VTRMVC\Core\Conf::get("App.Settings")->getSiteName() ?></h3>
             <nav>
                 <ul class="nav nav-justified">
-                    <li class="active"><?= \Html\HtmlHelper::a("home", "Home"); ?></li>
-                    <li><?=\Html\HtmlHelper::a("crud", "Crud"); ?></li>
-                    <li><?=\Html\HtmlHelper::a("docs/index", "Learn"); ?></li>
-                    <li><?=\Html\HtmlHelper::a("home/about", "About"); ?></li>
+                    <li id="Home"><?= \Html\HtmlHelper::a("home", "Home"); ?></li>
+                    <li id="Crud"><?=\Html\HtmlHelper::a("crud", "Crud"); ?></li>
+                    <li id="Learn"><?=\Html\HtmlHelper::a("docs/index", "Learn"); ?></li>
+                    <li id="About"><?=\Html\HtmlHelper::a("home/about", "About"); ?></li>
 
                 </ul>
             </nav>
@@ -38,7 +40,7 @@
         <div class="jumbotron">
             <h1>VTRMVC</h1>
             <p class="lead">Make your MVC Application easily. It's simple!</p>
-            <p><a class="btn btn-lg btn-success" href="docs/getstarted" role="button">Get started today</a></p>
+            <p><a class="btn btn-lg btn-success" href="docs/getstarted" role="button"><i class="fa fa-hand-o-right"></i> Get started today</a></p>
         </div>
 
         <!-- Example row of columns -->
@@ -54,6 +56,12 @@
     </div> <!-- /container -->
 
 </div>
+
+<script>
+    $(document).ready(function(){
+        $("#<?= $nav_ident ?>").addClass("active");
+    });
+</script>
 
 </body>
 </html>

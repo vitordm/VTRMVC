@@ -3,6 +3,8 @@
 class HomeController extends AppController
 {
 
+    protected $nav_ident = "Home";
+
     public function indexAction()
     {
         \VTRMVC\Core\View::$bag["class"] = (string)$this;
@@ -10,6 +12,7 @@ class HomeController extends AppController
 
     public function aboutAction()
     {
+        $this->setVar('nav_ident', "About");
 
     }
 

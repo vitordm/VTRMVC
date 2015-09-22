@@ -4,6 +4,7 @@ namespace VTRMVC\Core;
 
 use Html\HtmlHelper as HtmlHelper;
 use Html\FormHelper as FormHelper;
+use VTRMVC\Core\Exceptions\InvalidRouteException;
 use VTRMVC\Core\IApp\TApp;
 use VTRMVC\Util\Util;
 
@@ -157,7 +158,7 @@ class View extends TApp
 		if ($this->error_page)
 			App::import($this->error_page);
 		else
-			die("Not possible execute view");
+			throw new InvalidRouteException("Not possible execute view");
 	}
 
 	/**

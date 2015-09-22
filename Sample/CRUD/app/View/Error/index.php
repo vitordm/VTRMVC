@@ -11,9 +11,13 @@
 	<title>VTRMVC - Error</title>
 
 	<?php
-	echo Html\HtmlHelper::css("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css", false);
+	echo Html\HtmlHelper::css([
+		"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css",
+		"https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"], false);
 	echo Html\HtmlHelper::css("cover.css");
-	echo Html\HtmlHelper::js("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js", false);
+	echo Html\HtmlHelper::js([
+		"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js",
+		"https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"], false);
 	?>
 </head>
 
@@ -58,12 +62,12 @@ echo \Html\HtmlHelper::tag("div",
 					[
 						"type" => "p",
 						"class" => "lead",
-						"text" => "Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own."
+						"text" => "Viiishh... We didn't find your request. Please verify it and try again"
 					],
 					[
 						"type" => "p",
 						"class" => "lead",
-						"text" => \Html\HtmlHelper::a("#", "Learn more", false, ["class" => "btn btn-lg btn-default"])
+						"text" => \Html\HtmlHelper::a("home", "Bring me back to home! " . Html\BootstrapHelper::icon("hand-spock-o"), false, ["class" => "btn btn-lg btn-default"])
 					]
 				)
 			], [

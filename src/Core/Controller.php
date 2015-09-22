@@ -63,6 +63,7 @@ class Controller extends IApp\TApp
 	 *
 	 * @param string $name
 	 * @param string $action
+	 * @param array $attributes
 	 */
 	public function __construct($name = NULL, $action = NULL, $attributes = [])
 	{
@@ -72,7 +73,7 @@ class Controller extends IApp\TApp
 		else
 			$this->name = substr(__CLASS__, 0, -10);
 
-
+        $this->View = new View($this);
 
 		parent::__construct();
 
@@ -83,6 +84,8 @@ class Controller extends IApp\TApp
 		$this->beforeAction();
 
 		$this->setAction($action);
+
+
 
 
 	}
@@ -101,8 +104,7 @@ class Controller extends IApp\TApp
 	 */
 	public function set(array $vars)
 	{
-		if ($this->view)
-			$this->View->set($vars);
+		$this->View->set($vars);
 	}
 
 	/**
@@ -114,7 +116,7 @@ class Controller extends IApp\TApp
 	public function setVar($name, $value)
 	{
 		$var[$name] = $value;
-		$this->set(compact('var'));
+		$this->set($var);
 	}
 
 	/**
@@ -125,7 +127,7 @@ class Controller extends IApp\TApp
 		if ($this->view) {
 			$this->beforeRender();
 
-			$this->View = new View($this);
+
 			$this->View->render();
 		}
 
