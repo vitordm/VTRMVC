@@ -22,7 +22,7 @@
         <!-- The justified navigation menu is meant for single line per list item.
 			 Multiple lines will require custom code not provided by Bootstrap. -->
         <div class="masthead">
-            <h3 class="text-muted">Project name</h3>
+            <h3 class="text-muted"><?= \VTRMVC\Core\Conf::get("App.Settings")->getSiteName() ?></h3>
             <nav>
                 <ul class="nav nav-justified">
                     <li class="active"><?= \Html\HtmlHelper::a("home", "Home"); ?></li>

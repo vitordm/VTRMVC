@@ -42,6 +42,14 @@ class View extends TApp
 	/** @var array Variaveis */
 	public static $bag = [];
 
+	const HTTP_CODE_OK = 200;
+	const HTTP_CODE_NOT_MODIFIED = 304;
+	const HTTP_CODE_UNAUTHORIZED = 401;
+	const HTTP_CODE_FORBIDDEN = 403;
+	const HTTP_CODE_NOT_FOUND = 404;
+
+	const HTTP_CODE_INTERNAL_SERVER_ERROR = 500;
+
 
 	/**
 	 * @param Controller $controller
@@ -74,13 +82,15 @@ class View extends TApp
 	 */
 	public function render()
 	{
-		$this->defineLayout();
 
 		if ($this->controller) {
+            $this->define_http_code($this->controller->http_code);
 			$this->action = $this->controller->getAction();
 			$this->folder = str_replace("\\", DS, $this->controller->name);
 			$this->template = $this->controller->template;
 		}
+
+        $this->defineLayout();
 
 
 		if (!$this->view) {
@@ -143,7 +153,7 @@ class View extends TApp
 	 */
 	public function include_error_page()
 	{
-		header("HTTP/1.0 404 Not Found");
+		$this->define_http_code(self::HTTP_CODE_NOT_FOUND);
 		if ($this->error_page)
 			App::import($this->error_page);
 		else
@@ -181,6 +191,43 @@ class View extends TApp
 				header('Content-Type: text/plain');
 				return;
 		}
+	}
+
+	private function define_http_code($http_code = self::HTTP_CODE_OK)
+	{
+
+		if (is_int($http_code) || is_string($http_code)) {
+
+
+            switch ($http_code) {
+                case self::HTTP_CODE_OK :
+                    header("HTTP/1.0 200 OK");
+                    return;
+                case self::HTTP_CODE_NOT_MODIFIED:
+                    header("HTTP/1.0 304 Not Modified");
+                    return;
+                case self::HTTP_CODE_UNAUTHORIZED:
+                    header("HTTP/1.0 401 Unauthorized");
+                    return;
+                case self::HTTP_CODE_FORBIDDEN:
+                    header("HTTP/1.0 403 Forbidden");
+                    return;
+                case self::HTTP_CODE_NOT_FOUND:
+                    header("HTTP/1.0 404 Not Found");
+                    return;
+                case self::HTTP_CODE_INTERNAL_SERVER_ERROR:
+                    header("HTTP/1.0 500 Internal Server Error");
+                    return;
+                default:
+                    header("HTTP/1.0 " . $http_code);
+                    return;
+
+
+            }
+        } else {
+            throw new \InvalidArgumentException("Invalid argument to set header");
+        }
+
 	}
 
 }

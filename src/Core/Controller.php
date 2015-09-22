@@ -54,6 +54,11 @@ class Controller extends IApp\TApp
 	public $action;
 
 	/**
+	 * @var int
+	 */
+	public $http_code = 200;
+
+	/**
 	 * Contrutor da classe
 	 *
 	 * @param string $name

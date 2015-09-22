@@ -34,7 +34,16 @@ echo \Html\HtmlHelper::tag("div",
 						"text"  => "VtrMVC"
 					], [
 						"type" => "nav",
-						"text" => ""
+						"text" => \Html\HtmlHelper::tag("ul",
+							\Html\HtmlHelper::tags([
+								'type' => "li",
+								"class" => "active",
+								"text" => \Html\HtmlHelper::a("Home", "Error")
+							],[
+								'type' => "li",
+								"text" => \Html\HtmlHelper::a("Home", "Home")
+							]),
+							"nav masthead-nav")
 					]),
 					"inner")
 			], [

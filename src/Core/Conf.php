@@ -11,7 +11,7 @@ class Conf extends Registry
      * @param mixed $default_return
      * @return mixed
      */
-    public static function get($conf, $default_return = null)
+    public static function &get($conf, $default_return = null)
     {
         if (self::offsetExists($conf))
             return self::$container[$conf];

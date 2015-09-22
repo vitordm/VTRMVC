@@ -94,6 +94,22 @@ class AppSettings extends TAppIterator
     }
 
     /**
+     * @return string|null
+     */
+    public function getSiteName()
+    {
+        return $this->site_name;
+    }
+
+    /**
+     * @param string $site_name
+     */
+    public function setSiteName($site_name)
+    {
+        $this->site_name = $site_name;
+    }
+
+    /**
      * @param string $path
      */
     public function setSitePath($path)

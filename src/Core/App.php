@@ -166,7 +166,7 @@ class App
             throw $ex;
         }
 
-        Conf::set("App.Configuration", $configuration);
+        Conf::set("App.Settings", $configuration);
 
         return $configuration;
 
