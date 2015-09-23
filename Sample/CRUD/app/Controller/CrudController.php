@@ -15,7 +15,20 @@ class CrudController extends AppController
 	public function listAction()
 	{
 
+	}
 
+	public function addAction()
+	{
+
+	}
+
+	public function editAction($id)
+	{
+
+	}
+
+	public function deleteAction($id)
+	{
 
 	}
 
