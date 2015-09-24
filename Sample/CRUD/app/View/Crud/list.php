@@ -1,50 +1,70 @@
 <?php
+/**
+ * This is some example how to use the HtmlHelper Component
+ */
+
 echo \Html\FormHelper::open("list_search", "form-horizontal", "", "get", \Html\HtmlHelper::url("crud/list"));
-echo \Html\HtmlHelper::tag(
-    "div",
-    \Html\HtmlHelper::tag("label", "Name", "col-md-1 control-label", "", ["for" => "name"]) .
-    \Html\HtmlHelper::tag("div",
-        \Html\FormHelper::input("text", "name", "form-control input-md", "name", null, false, ["placeholder" => "Name"]),
-        "col-md-4"
-    )
-    ,
-    "form-group"
-);
-echo \Html\HtmlHelper::tag(
-    "div",
-    \Html\HtmlHelper::tag("label", "E-mail", "col-md-1 control-label", "", ["for" => "email"]) .
-    \Html\HtmlHelper::tag("div",
-        \Html\FormHelper::input("email", "email", "form-control input-md", "email", null, false, ["placeholder" => "E-mail"]),
-        "col-md-4"
-    ),
-    "form-group"
-);
 
 
-echo \Html\HtmlHelper::hr();
-echo \Html\HtmlHelper::tag(
-    "div",
-    Html\HtmlHelper::tag("div",
+echo \Html\HtmlHelper::tag("div",
+    \Html\HtmlHelper::tag("div", " ", "col-sm-3") .
+    \Html\HtmlHelper::tag(
+        "div",
+        Html\HtmlHelper::tag(
+            "div",
 
-        \Html\FormHelper::button(
-            false,
-            "btn btn-sm btn-primary",
-            "find",
-            Html\BootstrapHelper::icon("search") . " Find"
-        )
-         . "&nbsp;&nbsp;" .
-        Html\HtmlHelper::a(
-            "crud/add",
-            Html\BootstrapHelper::icon("file") . " New",
-            true,
-            ["class" => "btn btn-sm btn-success"]
-        ), "col-md-4"),
-    "form-group"
+            \Html\FormHelper::input("search", "search", "form-control", null, null, false, ["placeholder" => "Search..."]) .
+            \Html\HtmlHelper::span(
+                Html\FormHelper::button(false,
+                    "btn btn-primary",
+                    false,
+                    \Html\BootstrapHelper::icon("search", \Html\BootstrapHelper::FONT_BOOTSTRAP),
+                    ["type" => "submit"]
+                ),
+                ["class" => "input-group-btn"]
+            ),
+            "input-group h2"
+        ),
+        "col-sm-6"),
+    "row"
 );
 
 
 echo \Html\FormHelper::close();
+echo
+Html\HtmlHelper::tag("div",
+    Html\HtmlHelper::tag("div",
+        \Html\HtmlHelper::tag(
+            "div",
+            Html\HtmlHelper::a(
+                "crud/add",
+                Html\BootstrapHelper::icon("plus") . "",
+                true,
+                ["class" => "btn btn-success"]
+            ) .
+            Html\FormHelper::button(
+                false,
+                "btn btn-primary",
+                "btn_refresh",
+                Html\BootstrapHelper::icon("refresh") . "",
+                [ "onclick" => "javascript:void(0)"]
+            ) .
+            Html\FormHelper::button(
+                false,
+                "btn btn-info",
+                "btn_export",
+                Html\BootstrapHelper::icon("save-file", \Html\BootstrapHelper::FONT_BOOTSTRAP) . "",
+                ["onclick" => "javascript:void(0)"]
+            )
+            ,
+            "btn-group btn-group-sm",
+            null,
+            ["role" => "group"]
+        ), "col-sm-3"),
+    "row");
+
 echo \Html\HtmlHelper::hr();
+
 echo \Html\BootstrapHelper::panel("primary",
     \Html\HtmlHelper::tag("div", \Html\HtmlHelper::tag("h3", "CRUD List Sample", "panel-title"), "panel-heading") .
 

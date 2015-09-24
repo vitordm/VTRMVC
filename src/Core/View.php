@@ -34,12 +34,6 @@ class View extends TApp
 	/** @var null|string */
 	protected $error_page = null;
 
-	/** @var HtmlHelper */
-	public $html;
-
-	/** @var FormHelper */
-	public $form;
-
 	/** @var array Variaveis */
 	public static $bag = [];
 
@@ -58,9 +52,6 @@ class View extends TApp
 	public function __construct(Controller &$controller = null)
 	{
 		$this->controller = $controller;
-
-		$this->html = new HtmlHelper(SITE);
-		$this->form = new FormHelper(SITE);
 
 		parent::__construct();
 	}
@@ -106,8 +97,6 @@ class View extends TApp
 
 
 		extract($this->vars);
-		$html = &$this->html;
-		$form = &$this->form;
 
 
 		if ($this->view) {
