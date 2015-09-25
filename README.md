@@ -41,19 +41,20 @@ But be attention to principal nodes:
 ```
 
 Define a tree folder, where you will put your MVC Code, must be:
+
 ```
--> FOLDER
---> Controller          # Controllers folder
- ---> AppController.php   
- ---> HomeController.php  
+App Folder/
+|
+├── Controller/        # Controllers folder
+|   ├── AppController.php
+|   └── HomeController.php
+├── Model/             # Models folder
+|   ├── AppModel.php
+|   └── HomeModel.php
+└── View/              # Views folder
+    ├── Home /
+        └── index.php   
 
---> Model       # Models folder
- ---> AppModel.php
- ---> HomeModel.php
-
---> View        # Views folder
- ---> Home
-  ----> index.php 
 ```
 
 After this, you can call the application:
