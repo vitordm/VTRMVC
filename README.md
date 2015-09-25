@@ -52,7 +52,7 @@ App Folder/
 |   ├── AppModel.php
 |   └── HomeModel.php
 └── View/              # Views folder
-    ├── Home /
+    └── Home/
         └── index.php   
 
 ```
