@@ -10,7 +10,11 @@ namespace VTRMVC\Core;
 class Router
 {
 
-    public static function getUrlAtual()
+    //getUrlAtual
+	/**
+	 * @return string
+	 */
+    public static function getCurrentUrl()
     {
         $protocolo  = (strpos(strtolower($_SERVER['SERVER_PROTOCOL']), 'https') === false) ? 'http' : 'https';
         $host       = $_SERVER['HTTP_HOST'];
@@ -29,7 +33,10 @@ class Router
 
         return $UrlAtual;
     }
-    
+
+	/**
+	 * @return string
+	 */
     public static function getURL()
     {
         $protocolo  = (strpos(strtolower($_SERVER['SERVER_PROTOCOL']), 'https') === false) ? 'http' : 'https';
@@ -43,7 +50,10 @@ class Router
 
         return $UrlAtual;
     }
-    
+
+	/**
+	 * @param $path
+	 */
     public static function redirect($path)
     {
         header('location: ' . SITE . $path);

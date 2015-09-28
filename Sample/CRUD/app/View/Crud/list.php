@@ -47,7 +47,7 @@ Html\HtmlHelper::tag("div",
 				"btn btn-primary",
 				"btn_refresh",
 				Html\BootstrapHelper::icon("refresh") . "",
-				["onclick" => "javascript:void(0)"]
+				["onclick" => "refres_list()"]
 			) .
 			Html\FormHelper::button(
 				false,
@@ -84,7 +84,7 @@ echo \Html\BootstrapHelper::panel("primary",
 						Html\BootstrapHelper::icon("pencil"),
 						true,
 						[
-							"class"   => "btn btn-primary",
+							"class" => "btn btn-primary",
 						]
 					) .
 					Html\FormHelper::button(
@@ -114,7 +114,7 @@ echo \Html\BootstrapHelper::panel("primary",
 						Html\BootstrapHelper::icon("pencil"),
 						true,
 						[
-							"class"   => "btn btn-primary",
+							"class" => "btn btn-primary",
 						]
 					) .
 					Html\FormHelper::button(
@@ -144,7 +144,7 @@ echo \Html\BootstrapHelper::panel("primary",
 						Html\BootstrapHelper::icon("pencil"),
 						true,
 						[
-							"class"   => "btn btn-primary",
+							"class" => "btn btn-primary",
 						]
 					) .
 					Html\FormHelper::button(
@@ -161,7 +161,7 @@ echo \Html\BootstrapHelper::panel("primary",
 				)
 				)
 			]
-		], [], ["class" => "table table-hover table-bordered"]
+		], [], ["class" => "table table-hover table-bordered", "id" => "tb_crud_list"]
 
 	)
 
@@ -198,6 +198,80 @@ echo \Html\BootstrapHelper::panel("primary",
 		});
 		$(".bs-example-modal-sm").modal();
 	}
+
+	function refres_list() {
+		$.get(SITE + "crud/refresh", function () {
+
+		})
+			.done(function (data) {
+
+
+				var list = JSON.parse(data);
+
+				var table = null;
+				for (var b in list) {
+
+					var tr = convert_tr(list[b]);
+
+					if (typeof(tr) == "undefined" || tr == null || tr == "null")
+						console.log(typeof(tr));
+
+					table += tr.outerHTML;
+ 				}
+
+				$("#tb_crud_list > tbody").html(table);
+
+
+			})
+			.fail(function (data) {
+			$("#test").html(data);
+		})
+	}
+
+	function convert_tr(obj) {
+
+		//console.log(obj);
+
+		var id = document.createElement('td');
+
+		$(id).html(obj.id);
+
+		var name = document.createElement('td');
+		$(name).html(obj.name);
+
+		var email = document.createElement('td');
+		$(email).html(obj.email);
+
+		var tr = document.createElement('tr');
+
+		var div = document.createElement("div");
+		//btn-group btn-group-xs
+
+		$(div).attr("class", "btn-group btn-group-xs");
+		$(div).attr("role", "group");
+
+		var btns = '<a class="btn btn-primary" href="' + SITE + 'crud/edit/' + obj.id + '">' +
+				   '<i class="fa fa-pencil"></i>' +
+					'</a>' +
+					'<button onclick="delete_confirmation('+obj.id+')" class="btn btn-danger" id="btn_export">' +
+			        '<i class="fa fa-times"></i>' +
+					'</button>';
+
+		$(div).html(btns);
+		var btn = document.createElement('td');
+		$(btn).html(div);
+
+		$(tr).append(id);
+		$(tr).append(name);
+		$(tr).append(email);
+		$(tr).append(btn);
+
+
+		return tr;
+
+	}
+
+
 </script>
 
 

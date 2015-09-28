@@ -16,6 +16,12 @@
 
 
     ?>
+    <link rel="icon" href="<?= SITE ?>/favicon.ico">
+    <script type="text/javascript" >
+        var SITE = "<?= SITE ?>";
+        var CURRENT_URL = "<?= VTRMVC\Core\Router::getCurrentUrl(); ?>";
+    </script>
+
     <title><?= VTRMVC\Core\Conf::get("Site.title") ?></title>
 </head>
 <body>
@@ -30,6 +36,7 @@
                 <ul class="nav nav-justified">
                     <li id="Home"><?= \Html\HtmlHelper::a("home", "Home"); ?></li>
                     <li id="Crud"><?=\Html\HtmlHelper::a("crud", "Crud"); ?></li>
+                    <li id="Error"><?=\Html\HtmlHelper::a("error/404", "Error page"); ?></li>
                     <li id="Learn"><?=\Html\HtmlHelper::a("docs/index", "Learn"); ?></li>
                     <li id="About"><?=\Html\HtmlHelper::a("home/about", "About"); ?></li>
 
@@ -41,7 +48,7 @@
         <div class="jumbotron">
             <h1>VTRMVC</h1>
             <p class="lead">Make your MVC Application easily. It's simple!</p>
-            <p><a class="btn btn-lg btn-success" href="docs/getstarted" role="button"><i class="fa fa-hand-o-right"></i> Get started today</a></p>
+            <p><a class="btn btn-lg btn-success" href="<?= SITE ?>docs/getstarted" role="button"><i class="fa fa-hand-o-right"></i> Get started today</a></p>
         </div>
 
         <!-- Example row of columns -->

@@ -16,8 +16,9 @@
 		"https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"], false);
 	echo Html\HtmlHelper::css("cover.css");
 	echo Html\HtmlHelper::js([
-		"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js",
-		"https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"], false);
+		"https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js",
+		"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
+	], false);
 	?>
 </head>
 
@@ -67,7 +68,7 @@ echo \Html\HtmlHelper::tag("div",
 					[
 						"type" => "p",
 						"class" => "lead",
-						"text" => \Html\HtmlHelper::a("home", "Bring me back to home! " . Html\BootstrapHelper::icon("hand-spock-o"), false, ["class" => "btn btn-lg btn-default"])
+						"text" => \Html\HtmlHelper::a("home", "Bring me back to home! " . Html\BootstrapHelper::icon("hand-spock-o"), 1 ,["class" => "btn btn-lg btn-default"])
 					]
 				)
 			], [
