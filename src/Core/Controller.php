@@ -34,7 +34,7 @@ class Controller extends IApp\TApp
 
 	/**
 	 * Varivel que verifica se utilizará view
-	 * @var bool
+	 * @var bool|string
 	 */
 	public $view = true;
 
@@ -201,6 +201,7 @@ class Controller extends IApp\TApp
 	protected function setAction($action)
 	{
 		$this->action = $action;
+		$this->view = $action;
 	}
 
 

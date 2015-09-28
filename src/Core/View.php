@@ -75,13 +75,12 @@ class View extends TApp
 
 		if ($this->controller) {
             $this->define_http_code($this->controller->http_code);
-			$this->action = $this->controller->getAction();
+			$this->action = ($this->controller->view) ? $this->controller->view : "";
 			$this->folder = str_replace("\\", DS, $this->controller->name);
 			$this->template = $this->controller->template;
 		}
 
         $this->defineLayout();
-
 
 		if (!$this->view) {
 
@@ -92,7 +91,6 @@ class View extends TApp
 			else
 				$this->view = false;
 		}
-
 
 		extract($this->vars);
 
@@ -181,7 +179,7 @@ class View extends TApp
 		}
 	}
 
-	private function define_http_code($http_code = self::HTTP_CODE_OK)
+	public function define_http_code($http_code = self::HTTP_CODE_OK)
 	{
 
 		if (is_int($http_code) || is_string($http_code)) {
