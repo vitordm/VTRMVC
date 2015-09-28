@@ -1,5 +1,5 @@
 {
-  "name": "mvc/vtrmvc",
+  "name": "vtr/vtrmvc",
   "description": "A simple php framework mvc",
   "minimum-stability": "dev",
   "license": "MIT",
