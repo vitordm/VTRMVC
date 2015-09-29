@@ -2,7 +2,7 @@
   "name": "vtr/vtrmvc",
   "description": "A simple php framework mvc",
   "type" : "library",
-  "minimum-stability": "dev",
+  "keywords": ["framework"],
   "license": "MIT",
   "authors": [
     {
