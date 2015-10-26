@@ -10,3 +10,7 @@ composer.lock
 public/
 Test/
 /app
+
+#Test folders
+Sample/*/
+!Sample/*.7z
