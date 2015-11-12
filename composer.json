@@ -1,5 +1,5 @@
 {
-  "name": "vtr/vtrmvc",
+  "name": "vtr/mvc",
   "description": "A simple php framework mvc",
   "type" : "library",
   "keywords": [
