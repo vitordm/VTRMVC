@@ -15,7 +15,7 @@ First, use composer...
 ```json
 ...
 "require" {
-  "mvc/vtrmvc" : "dev-master"
+  "vtr/mvc" : "dev-master"
 }
 ```
 
