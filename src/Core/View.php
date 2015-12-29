@@ -49,7 +49,7 @@ class View extends TApp
 	 */
 	public function __construct(Controller &$controller = null)
 	{
-		$this->controller = $controller;
+		$this->controller = &$controller;
 
 		parent::__construct();
 	}

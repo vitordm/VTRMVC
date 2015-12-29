@@ -2,6 +2,7 @@
 
 namespace VTRMVC\Configuration;
 
+use VTRMVC\Core\Conf;
 use VTRMVC\Core\Exceptions\InvalidConfigurationException;
 use VTRMVC\Core\IApp\TAppIterator;
 use VTRMVC\Util\Util;
@@ -57,6 +58,11 @@ class AppSettings extends TAppIterator
         $this->setSitePath($this->container["site_path"]);
         $this->setTmpPath($this->container["tmp_path"]);
         $this->setLogPath($this->container["log_path"]);
+
+        if (isset($configuration["conf"])) {
+            Conf::loadContainer($configuration['conf']);
+            unset($configuration["conf"]);
+        }
 
     }
 
@@ -226,6 +232,9 @@ class AppSettings extends TAppIterator
         return $this->mvc->suffix_action;
     }
 
+    /**
+     * @return bool|string
+     */
     public function getMVCTemplate()
     {
         $path = $this->mvc->view->template_folder;

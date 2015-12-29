@@ -10,6 +10,20 @@ class Registry
 {
     /** @var array  $container Store Offsets */
     protected static $container = [];
+
+    /**
+     * @param array $container
+     */
+    public static function loadContainer(array $container)
+    {
+        foreach ($container as $k => $v) {
+            if (!is_string($k)) {
+                continue;
+            }
+
+            self::set($k, $v);
+        }
+    }
     
     /**
      * @view Registry::offsetGet
