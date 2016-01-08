@@ -38,7 +38,7 @@ class Registry
      */
     public static function set($offset, $value)
     {
-        return self::offsetSet($offset, $value);
+        self::offsetSet($offset, $value);
     }
     
     /**

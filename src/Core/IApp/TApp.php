@@ -8,25 +8,19 @@ namespace VTRMVC\Core\IApp;
 abstract class TApp implements IApp
 {
 
-    /**
-     * @var &$_GET Ponteiro para a variavel global $_GET
-     */
+
+    /** @var array &$_GET Ponteiro para a variavel global $_GET */
     public $get;
 
-    /**
-     * @var &$_POST Ponteiro para a variavel global $_GET
-     */
+
+    /** @var array &$_POST Ponteiro para a variavel global $_GET */
     public $post;
 
-    /**
-     * @var &$_GET Ponteiro para a variavel global $_GET
-     */
+
+    /** @var array &$_GET Ponteiro para a variavel global $_GET   */
     public $files;
 
-    /**
-     * Objetos
-     * @var ArrayInterator
-     */
+    /** @var \ArrayIterator Objetos  */
     public $objects;
 
     /**

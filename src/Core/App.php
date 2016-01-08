@@ -3,6 +3,7 @@
 namespace VTRMVC\Core;
 
 use VTRMVC\Configuration\AppSettings;
+use VTRORM\ORMSettings;
 
 class App
 {
@@ -162,6 +163,15 @@ class App
 
         try {
             $configuration = new AppSettings($json);
+            if ($configuration->offsetExists("database")) {
+                $orm = ["database" => $configuration->offsetGet("database")];
+                $ormSettings = new ORMSettings($orm, ORMSettings::TYPE_SCHEMA_ARRAY);
+            }
+            else {
+                $ormSettings = new ORMSettings(["database" => ["TypeDatabase" => "undefined"]], ORMSettings::TYPE_SCHEMA_ARRAY);
+            }
+
+
         } catch (\Exception $ex) {
             throw $ex;
         }
