@@ -14,8 +14,9 @@
   ],
   "require": {
     "php": ">=5.5",
-    "vtr/html-helpr": "v1.*",
-    "vtr/orm": "v1.*"
+    "vtr/orm": "v1.*",
+    "vtr/html-helpr": "v1.*"
+
   },
   "autoload": {
     "psr-4": {
