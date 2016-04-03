@@ -3,8 +3,8 @@
 * PHP >= 5.5
 
 ### Updates
-As you can see, VTRMVC is still in DEV status.
-We're hope to publish our first realese soon.
+VTRMVC 1.0 is CLOSE!
+Why ? I'm working with VTRMVC 2.0. We publish our new version soon.
 
 
 ### How to use ?
